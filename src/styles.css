@@ -62,77 +62,81 @@
   --default-font-family: 'Nunito Sans', sans-serif;
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  @apply transition-colors duration-300 ease-out;
 }
 
-html,
-body,
-#app {
-  min-height: 100%;
+@utility text-preset-1 {
+  font-size: 2rem;
+  line-height: 137.5%;
+  letter-spacing: 0;
+  font-weight: 800;
+}
+@utility text-preset-2 {
+  font-size: 1.5rem;
+  line-height: 137.5%;
+  letter-spacing: 0;
+  font-weight: 800;
+}
+@utility text-preset-3 {
+  font-size: 1.125rem;
+  line-height: 145%;
+  letter-spacing: 0;
+  font-weight: 800;
+}
+@utility text-preset-4-semibold {
+  font-size: 1rem;
+  line-height: 200%;
+  letter-spacing: 0;
+  font-weight: 600;
+}
+@utility text-preset-4-light {
+  font-size: 2rem;
+  line-height: 137.5%;
+  letter-spacing: 0;
+  font-weight: 300;
+}
+@utility text-preset-5-regular {
+  font-size: 0.875rem;
+  line-height: 145%;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+@utility text-preset-5-light {
+  font-size: 0.875rem;
+  line-height: 225%;
+  letter-spacing: 0;
+  font-weight: 300;
+}
+@utility text-preset-6-semibold {
+  font-size: 0.75rem;
+  line-height: 135%;
+  letter-spacing: 0;
+  font-weight: 600;
+}
+@utility text-preset-6-regular {
+  font-size: 0.75rem;
+  line-height: 135%;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+@utility text-preset-6-light {
+  font-size: 0.75rem;
+  line-height: 135%;
+  letter-spacing: 0;
+  font-weight: 300;
 }
 
-@layer components {
-  .text-preset-1 {
-    font-size: 2rem;
-    line-height: 137.5%;
-    letter-spacing: 0;
-    font-weight: 800;
-  }
-  .text-preset-2 {
-    font-size: 1.5rem;
-    line-height: 137.5%;
-    letter-spacing: 0;
-    font-weight: 800;
-  }
-  .text-preset-3 {
-    font-size: 1.125rem;
-    line-height: 145%;
-    letter-spacing: 0;
-    font-weight: 800;
-  }
-  .text-preset-4-semibold {
-    font-size: 1rem;
-    line-height: 200%;
-    letter-spacing: 0;
-    font-weight: 600;
-  }
-  .text-preset-4-light {
-    font-size: 2rem;
-    line-height: 137.5%;
-    letter-spacing: 0;
-    font-weight: 300;
-  }
-  .text-preset-5-regular {
-    font-size: 0.875rem;
-    line-height: 145%;
-    letter-spacing: 0;
-    font-weight: 400;
-  }
-  .text-preset-5-light {
-    font-size: 0.875rem;
-    line-height: 225%;
-    letter-spacing: 0;
-    font-weight: 300;
-  }
-  .text-preset-6-semibold {
-    font-size: 0.75rem;
-    line-height: 135%;
-    letter-spacing: 0;
-    font-weight: 600;
-  }
-  .text-preset-6-regular {
-    font-size: 0.75rem;
-    line-height: 135%;
-    letter-spacing: 0;
-    font-weight: 400;
-  }
-  .text-preset-6-light {
-    font-size: 0.75rem;
-    line-height: 135%;
-    letter-spacing: 0;
-    font-weight: 300;
-  }
+@utility text-primary-clr {
+  @apply text-grey-950 dark:text-white;
+}
+
+@utility bg-primary-clr {
+  @apply bg-grey-50 dark:bg-blue-950;
+}
+
+@utility element-bg-primary-clr {
+  @apply bg-white dark:bg-blue-900;
 }
