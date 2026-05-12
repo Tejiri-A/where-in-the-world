@@ -1,5 +1,66 @@
+@import 'tailwindcss';
 
-@import "tailwindcss";
+/* nunito-sans-300 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 300;
+  src:
+    url('/fonts/nunito-sans-v19-latin-300.woff2') format('woff2'),
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+      url('/fonts/nunito-sans-v19-latin-300.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+}
+
+/* nunito-sans-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url('/fonts/nunito-sans-v19-latin-regular.woff2') format('woff2'),
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+      url('/fonts/nunito-sans-v19-latin-regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+}
+
+/* nunito-sans-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 600;
+  src:
+    url('/fonts/nunito-sans-v19-latin-600.woff2') format('woff2'),
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+      url('/fonts/nunito-sans-v19-latin-600.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+}
+
+/* nunito-sans-800 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 800;
+  src:
+    url('/fonts/nunito-sans-v19-latin-800.woff2') format('woff2'),
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+      url('/fonts/nunito-sans-v19-latin-800.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+}
+
+@theme {
+  --color-grey-950: #111517;
+  --color-grey-400: #808080;
+  --color-grey-350: #979797;
+  --color-grey-300: #b2b2b2;
+  --color-grey-250: #c4c4c4;
+  --color-grey-50: #fcfcfc;
+
+  --color-blue-950: #202c36;
+  --color-blue-900: #2b3844;
+
+  --default-font-family: 'Nunito Sans', sans-serif;
+}
 
 * {
   box-sizing: border-box;
@@ -11,4 +72,67 @@ html,
 body,
 #app {
   min-height: 100%;
+}
+
+@layer components {
+  .text-preset-1 {
+    font-size: 2rem;
+    line-height: 137.5%;
+    letter-spacing: 0;
+    font-weight: 800;
+  }
+  .text-preset-2 {
+    font-size: 1.5rem;
+    line-height: 137.5%;
+    letter-spacing: 0;
+    font-weight: 800;
+  }
+  .text-preset-3 {
+    font-size: 1.125rem;
+    line-height: 145%;
+    letter-spacing: 0;
+    font-weight: 800;
+  }
+  .text-preset-4-semibold {
+    font-size: 1rem;
+    line-height: 200%;
+    letter-spacing: 0;
+    font-weight: 600;
+  }
+  .text-preset-4-light {
+    font-size: 2rem;
+    line-height: 137.5%;
+    letter-spacing: 0;
+    font-weight: 300;
+  }
+  .text-preset-5-regular {
+    font-size: 0.875rem;
+    line-height: 145%;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+  .text-preset-5-light {
+    font-size: 0.875rem;
+    line-height: 225%;
+    letter-spacing: 0;
+    font-weight: 300;
+  }
+  .text-preset-6-semibold {
+    font-size: 0.75rem;
+    line-height: 135%;
+    letter-spacing: 0;
+    font-weight: 600;
+  }
+  .text-preset-6-regular {
+    font-size: 0.75rem;
+    line-height: 135%;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+  .text-preset-6-light {
+    font-size: 0.75rem;
+    line-height: 135%;
+    letter-spacing: 0;
+    font-weight: 300;
+  }
 }
