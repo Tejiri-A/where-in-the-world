@@ -1,14 +1,34 @@
+import { getCountries } from '#/api/countries'
+import type { CountryCardType } from '#/api/types'
+import CountriesContainer from '#/components/layout/countries/CountriesContainer'
+import { queryOptions } from '@tanstack/react-query'
 import { createFileRoute } from '@tanstack/react-router'
+import { Loader2 } from 'lucide-react'
+import { Suspense } from 'react'
+import z from 'zod'
 
-export const Route = createFileRoute('/')({ component: Home })
+const searchSchema = z.object({
+  search: z.string().optional(),
+  region: z.string().optional(),
+})
+
+export const countriesQueryOptions = () =>
+  queryOptions<CountryCardType[]>({
+    queryKey: ['countries'],
+    queryFn: () => getCountries(),
+    staleTime: Infinity,
+  })
+
+export const Route = createFileRoute('/')({
+  validateSearch: (search) => searchSchema.parse(search),
+  loader: ({ context: { queryClient } }) => {
+    return queryClient.ensureQueryData(countriesQueryOptions())
+  },
+  component: Home,
+})
 
 function Home() {
-  return (
-    <div className="p-8">
-      <h1 className="text-preset-1">Welcome to TanStack Start</h1>
-      <p className="text-preset-6-semibold">
-        Edit <code>src/routes/index.tsx</code> to get started.
-      </p>
-    </div>
-  )
+  const { region, search } = Route.useSearch()
+
+  return <CountriesContainer region={region} search={search} />
 }

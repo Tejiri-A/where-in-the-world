@@ -1,10 +1,9 @@
 import { SearchIcon } from 'lucide-react'
 
-
 function SearchInput() {
   return (
-    <div className="element-bg-primary-clr px-8 flex items-center justify-start h-14 relative w-full max-w-120 rounded-sm drop-shadow">
-      <div className="h-5 flex items-center gap-6 text-grey-400  dark:text-white ">
+    <div className="flex relative justify-start items-center px-8 w-full h-14 rounded-sm drop-shadow element-bg-primary-clr max-w-120">
+      <div className="flex gap-6 items-center h-5 text-grey-400 dark:text-white">
         <SearchIcon className="size-5" />
         <input
           type="search"

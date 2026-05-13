@@ -15,7 +15,7 @@ import { ChevronDown } from 'lucide-react'
 function FilterSelect() {
   return (
     <Root>
-      <Trigger className="shrink-0 w-50 h-14 px-6 flex items-center justify-between rounded-sm drop-shadow text-preset-5-regular element-bg-primary-clr text-primary-clr capitalize cursor-pointer">
+      <Trigger className="flex justify-between items-center px-6 h-14 capitalize rounded-sm drop-shadow cursor-pointer shrink-0 w-50 text-preset-5-regular element-bg-primary-clr text-primary-clr">
         <Value placeholder="Filter by Region" />
         <Icon asChild>
           <ChevronDown />
@@ -25,14 +25,14 @@ function FilterSelect() {
         <Content
           position="popper"
           align="center"
-          className="w-50 h-41 px-6  mt-2 rounded-sm element-bg-primary-clr drop-shadow"
+          className="px-6 mt-2 rounded-sm drop-shadow w-50 h-41 element-bg-primary-clr"
         >
-          <Viewport className="  max-h-fit flex flex-col gap-y-2 justify-center">
+          <Viewport className="flex flex-col gap-y-2 justify-center">
             {continents.map((continent) => (
               <Item
                 key={continent}
                 value={continent}
-                className="cursor-pointer capitalize text-preset-5-regular text-primary-clr"
+                className="capitalize cursor-pointer text-preset-5-regular text-primary-clr"
               >
                 <ItemText>{continent}</ItemText>
               </Item>

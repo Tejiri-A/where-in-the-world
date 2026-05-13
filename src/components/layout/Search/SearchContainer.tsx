@@ -3,9 +3,11 @@ import SearchInput from './SearchInput'
 
 function SearchContainer() {
   return (
-    <div className="mt-6 md:mt-12 flex flex-col md:flex-row justify-between gap-10 px-4 md:px-10 lg:px-20">
-      <SearchInput />
-      <FilterSelect/>
+    <div className="px-4 mt-6 md:px-10 lg:px-20">
+      <div className="flex flex-col gap-10 justify-between  w-full max-w-[1280px] mx-auto md:mt-12 md:flex-row ">
+        <SearchInput />
+        <FilterSelect />
+      </div>
     </div>
   )
 }
