@@ -140,3 +140,7 @@
 @utility element-bg-primary-clr {
   @apply bg-white dark:bg-blue-900;
 }
+
+@utility drop-shadow{
+  box-shadow: 0 2px 9px rgba(0,0,0,0.0532);
+}
