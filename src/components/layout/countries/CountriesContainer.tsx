@@ -13,13 +13,24 @@ function CountriesContainer({ region, search }: Props) {
     countriesQueryOptions(),
   )
 
-  if (!countries) return null
+  if(!countries) return (
+    <main className="mt-8 md:mt-12">
+      <h2 className="text-preset-1 text-primary-clr">Something went wrong</h2>
+    </main>
+  )
 
   const filteredCountries = countries
-    .filter((c) => !region || c.region === region)
+    .filter((c) => !region || c.region.toLowerCase() === region)
     .filter(
       (c) =>
         !search || c.name.common.toLowerCase().includes(search.toLowerCase()),
+    )
+
+  if (!filteredCountries)
+    return (
+      <main className="mt-8 md:mt-12">
+        <h2 className="text-preset-1 text-primary-clr">No countries found</h2>
+      </main>
     )
   return (
     <main className="mt-8 md:mt-12 px-13.75 md:px-21 flex justify-center">
