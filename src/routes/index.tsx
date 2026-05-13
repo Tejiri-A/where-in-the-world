@@ -25,6 +25,18 @@ export const Route = createFileRoute('/')({
     return queryClient.ensureQueryData(countriesQueryOptions())
   },
   component: Home,
+  pendingComponent: () => (
+    <div className="flex justify-center items-center min-h-screen">
+      <Loader2 className="animate-spin size-20" />
+    </div>
+  ),
+  errorComponent: ({error,reset}) => (
+    <div className='min-h-screen'>
+      <h2 className='text-preset-1 text-primary-clr'>There was an error: {error.message}</h2>
+      <button onClick={() => reset()} className='px-1 py-2 border drop-shadow text-preset-5-regular text-primary-clr'>Try again</button>
+    </div>
+  ),
+  pendingMinMs: 500
 })
 
 function Home() {
