@@ -6,9 +6,51 @@
     <title>Where In The World</title>
     <script defer type="module" src="/src/main.tsx"></script>
 
-    <link rel="preload" href="/public/fonts/nunito-sans-v19-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link
+      rel="preload"
+      href="/public/fonts/nunito-sans-v19-latin-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <link rel="preconnect" href="https://restcountries.com" />
+    <link rel="dns-prefetch" href="https://restcountries.com" />
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+
+      .loading-shell {
+        background-color: #fafafa; /* Light mode bg */
+        min-height: 100vh;
+      }
+
+      html.dark .loading-shell {
+        background-color: #202c37; /* Dark mode bg */
+      }
+    </style>
+
+    <script>
+      if (localStorage.getItem('theme') === 'dark')
+        document.documentElement.classList.add('dark')
+    </script>
   </head>
   <body>
-    <div id="app" class="bg-primary-clr"></div>
+    <div id="app">
+      <!-- shows up before react loads -->
+      <div class="loading-shell">
+        <header
+          style="
+            height: 80px;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+          "
+        ></header>
+      </div>
+    </div>
   </body>
 </html>

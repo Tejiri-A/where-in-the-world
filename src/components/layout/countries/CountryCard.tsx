@@ -11,7 +11,7 @@ function CountryCard(Country: CountryCardType) {
             src={flags.png}
             alt={flags.alt}
             className="object-cover size-full"
-            loading="lazy"
+            loading="eager"
           />
         </picture>
         <div className="flex items-center px-6 pt-5.5 pb-12 text-primary-clr">

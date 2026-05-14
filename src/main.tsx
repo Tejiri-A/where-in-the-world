@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 1000 * 60 * 5,
+      staleTime: Infinity,
     },
   },
 })
@@ -26,11 +26,12 @@ declare module '@tanstack/react-router' {
 
 const rootElement = document.getElementById('app')!
 
-if (!rootElement.innerHTML) {
-  const root = ReactDOM.createRoot(rootElement)
-  root.render(
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} context={{queryClient}} />
-    </QueryClientProvider>,
-  )
-}
+// const rootElement = document.getElementById('app')!
+
+const root = ReactDOM.createRoot(rootElement)
+root.render(
+  <QueryClientProvider client={queryClient}>
+    <RouterProvider router={router} context={{ queryClient }} />
+  </QueryClientProvider>,
+)
+
