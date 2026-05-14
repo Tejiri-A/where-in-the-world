@@ -1,115 +1,92 @@
 # Frontend Mentor - REST Countries API with color theme switcher solution
 
+A premium country explorer built with React and Tanstack, featuring real-time searching,
+regional filtering and seamless navigation between over 250 nations.
+
 This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Table of contents
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-  - [AI Collaboration](#ai-collaboration)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
-### The challenge
 
-Users should be able to:
-
-- See all countries from the API on the homepage
-- Search for a country using an `input` field
-- Filter countries by region
-- Click on a country to see more detailed information on a separate page
-- Click through to the border countries on the detail page
-- Toggle the color scheme between light and dark mode *(optional)*
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./screenshot.png)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
 
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
+### Features
+- **Search**: Instant country lookup with client-side filtering.
+- **Filter**: Narrow down countries by continent (Africa, Americas, Asia, Europe, Oceania).
+- **Detail View**: Full statistics for every country, including border navigation.
+- **Theme Toggle**: Accessible dark/light mode implementation.
+- **URL-Driven State**: Shareable URLs for search and filter results.
+
+## Getting Started
+To run this project on your system, you need Node.js and any package manager of your choice installed.
+
+### Prerequisites
+- Node.js (v18+)
+- pnpm / npm / yarn
+
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/Tejiri-A/where-in-the-world.git
+
+# Install dependencies
+pnpm install
+
+# Start the development server
+pnpm dev
+```
+
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- **React 19**
+- **TanStack Router** (Type-safe file-based routing)
+- **TanStack Query** (Server state management)
+- **Tailwind CSS** (Modern styling)
+- **Zod** (Search parameter validation)
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+### Decisions
 
-### What I learned
+### Why TanStack Router over React Router?
+I chose **TanStack Router** for its superior type safety and built-in search parameter validation. Unlike traditional routers, it treats the URL as a first-class state store. This allowed me to keep the search and filter state in the URL without the "syncing" headaches typically found in SPAs.
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+### Why TanStack Query?
+Even though the REST Countries API is relatively static, **TanStack Query** allowed me to:
+1.  **Deduplicate requests**: The "All Countries" list is fetched once and cached.
+2.  **Instant Border Navigation**: When clicking a border country, we reach into the existing cache rather than making a new API call, making the app feel like a desktop application.
 
-To see how you can add code snippets, see below:
+### Dark Mode Implementation
+The theme is managed via a `ThemeProvider` using a `dark` class on the `<html>` element. This integrates seamlessly with Tailwind's `dark:` utilities and persists in `localStorage`.
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+1. **Virtualization**: Rendering large datasets at once is not good for performance. Virtualization renders extra information as the user scrolls down to prevent their devices from being overwhelmed
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [How To Use React Query With TanStack Router](https://www.youtube.com/watch?v=XVBoMIwBK8M) - I did not know how to integrate tanstack query into tanstack router until I watched this video. Creator is straigh to the point and easy to understand
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
 ### AI Collaboration
 
-Describe how you used AI tools (if any) during this project. This helps demonstrate your ability to work effectively with AI assistants.
-
-- What tools did you use (e.g., ChatGPT, Claude, GitHub Copilot)?
-- How did you use them (e.g., debugging, generating boilerplate, brainstorming solutions)?
-- What worked well? What didn't?
-
-**Note: Delete this note and the content above if you didn't use AI, or replace with your own experience.**
+I only used AI to assist me with my architectural decisions and to guide me on the use of Tanstack Query with Tanstack router and the use of Tanstack router's powerful search parameters mechanism.
 
 ## Author
 
@@ -117,10 +94,6 @@ Describe how you used AI tools (if any) during this project. This helps demonstr
 - Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
 - Twitter - [@yourusername](https://www.twitter.com/yourusername)
 
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
 
-## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
 
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
