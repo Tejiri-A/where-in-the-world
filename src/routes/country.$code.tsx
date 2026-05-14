@@ -18,6 +18,15 @@ export const Route = createFileRoute('/country/$code')({
   loader: ({ context: { queryClient }, params: { code } }) => {
     return queryClient.ensureQueryData(singleCountryQuery(code))
   },
+  head: ({ loaderData }) => ({
+    meta: [
+      { title: loaderData?.name.common ?? 'Country' },
+      {
+        name: 'description',
+        content: `Details about ${loaderData?.name.common}`,
+      },
+    ],
+  }),
 })
 
 function RouteComponent() {
@@ -25,7 +34,6 @@ function RouteComponent() {
   const { data: country } = useSuspenseQuery(singleCountryQuery(code))
 
   const {
-    cca3,
     flags,
     name,
     population,
@@ -108,12 +116,12 @@ function RouteComponent() {
                 <p className="text-base font-semibold leading-6">
                   Border Countries:
                 </p>
-                <div className="flex gap-4 items-center">
+                <div className="flex flex-wrap gap-4 items-center">
                   {borders
                     ? borders?.map((b) => (
                         <div
                           key={b}
-                          className="flex justify-center items-center w-24 h-7 drop-shadow rounded-xs element-bg-primary-clr text-preset-6-light md:text-preset-5-light"
+                          className="flex flex-wrap justify-center items-center w-24 h-7 drop-shadow rounded-xs element-bg-primary-clr text-preset-6-light md:text-preset-5-light"
                         >
                           {b}
                         </div>

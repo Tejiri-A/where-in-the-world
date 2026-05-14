@@ -37,7 +37,13 @@ export const Route = createFileRoute('/')({
       <button onClick={() => reset()} className='px-1 py-2 border drop-shadow text-preset-5-regular text-primary-clr'>Try again</button>
     </div>
   ),
-  pendingMinMs: 500
+  pendingMinMs: 500,
+  head: () => ({
+    meta: [
+      {title: 'Where in the world?'},
+      {name: 'description', content:'Browse and search countries around the world'}
+    ]
+  })
 })
 
 function Home() {
