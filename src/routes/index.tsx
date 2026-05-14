@@ -1,6 +1,7 @@
 import { getCountries } from '#/api/countries'
 import type { CountryCardType } from '#/api/types'
 import CountriesContainer from '#/components/layout/countries/CountriesContainer'
+import SearchContainer from '#/components/layout/Search/SearchContainer'
 import { queryOptions } from '@tanstack/react-query'
 import { createFileRoute } from '@tanstack/react-router'
 import { Loader2 } from 'lucide-react'
@@ -42,5 +43,10 @@ export const Route = createFileRoute('/')({
 function Home() {
   const { region, search } = Route.useSearch()
 
-  return <CountriesContainer region={region} search={search} />
+  return <>
+  <SearchContainer />
+  <CountriesContainer region={region} search={search} />
+  </>
+  
+  
 }

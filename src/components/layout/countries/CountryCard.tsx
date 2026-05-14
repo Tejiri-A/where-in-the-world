@@ -5,12 +5,12 @@ function CountryCard(Country: CountryCardType) {
   const { cca3, flags, name, population, region, capital } = Country
   return (
     <Link to="/country/$code" params={{ code: cca3 }}>
-      <div className="grid grid-rows-2 rounded-sm drop-shadow w-66 h-84 element-bg-primary-clr">
+      <div className="grid overflow-hidden grid-rows-2 rounded-sm drop-shadow w-66 h-84 element-bg-primary-clr">
         <picture>
           <img
             src={flags.png}
             alt={flags.alt}
-            className="object-cover size-full"
+            className="object-contain size-full"
             loading="lazy"
           />
         </picture>
