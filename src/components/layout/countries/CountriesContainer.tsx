@@ -14,6 +14,17 @@ function CountriesContainer({ region, search }: Props) {
     countriesQueryOptions(),
   )
 
+  const filteredCountries = useMemo(
+    () =>
+      (countries ?? []).filter(
+        (c) =>
+          (!region || c.region.toLowerCase() === region) &&
+          (!search ||
+            c.name.common.toLowerCase().includes(search.toLowerCase())),
+      ),
+    [countries, search, region],
+  )
+
   if (!countries)
     return (
       <main className="mt-8 md:mt-12">
@@ -21,17 +32,7 @@ function CountriesContainer({ region, search }: Props) {
       </main>
     )
 
-  const filteredCountries = useMemo(
-    () =>
-      countries
-        .filter((c) => !region || c.region.toLowerCase() === region)
-        .filter(
-          (c) =>
-            !search ||
-            c.name.common.toLowerCase().includes(search.toLowerCase()),
-        ),
-    [countries, search, region],
-  )
+  
 
   if (filteredCountries.length === 0)
     return (

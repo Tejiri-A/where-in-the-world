@@ -1,6 +1,6 @@
 type Props = {
   label: string
-  data: any
+  data: string | number | undefined
 }
 
 function CountryInformation({ data, label }: Props) {

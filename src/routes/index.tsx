@@ -5,7 +5,7 @@ import SearchContainer from '#/components/layout/Search/SearchContainer'
 import { queryOptions } from '@tanstack/react-query'
 import { createFileRoute } from '@tanstack/react-router'
 import { Loader2 } from 'lucide-react'
-import { Suspense } from 'react'
+
 import z from 'zod'
 
 const searchSchema = z.object({
