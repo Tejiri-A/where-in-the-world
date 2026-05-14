@@ -31,28 +31,57 @@ export const Route = createFileRoute('/')({
       <Loader2 className="animate-spin size-20" />
     </div>
   ),
-  errorComponent: ({error,reset}) => (
-    <div className='min-h-screen'>
-      <h2 className='text-preset-1 text-primary-clr'>There was an error: {error.message}</h2>
-      <button onClick={() => reset()} className='px-1 py-2 border drop-shadow text-preset-5-regular text-primary-clr'>Try again</button>
+  errorComponent: ({ error, reset }) => (
+    <div className="min-h-screen">
+      <h2 className="text-preset-1 text-primary-clr">
+        There was an error: {error.message}
+      </h2>
+      <button
+        onClick={() => reset()}
+        className="px-1 py-2 border drop-shadow text-preset-5-regular text-primary-clr"
+      >
+        Try again
+      </button>
     </div>
   ),
   pendingMinMs: 500,
   head: () => ({
     meta: [
-      {title: 'Where in the world?'},
-      {name: 'description', content:'Browse and search countries around the world'}
-    ]
-  })
+      { title: 'Where in the world?' },
+      {
+        name: 'description',
+        content: 'Browse and search countries around the world',
+      },
+      { property: 'og:title', content: 'Where in the world?' },
+      {
+        property: 'og:description',
+        content: 'Browse and search countries around the world',
+      },
+      {
+        property: 'og:url',
+        content: 'https://wheree-in-the-world.netlify.app/',
+      },
+      // twitter tags
+      { property: 'twitter:title', content: 'Where in the world?' },
+      {
+        property: 'twitter:description',
+        content: 'Browse and search countries around the world',
+      },
+      {
+        property: 'twitter:url',
+        content: 'https://wheree-in-the-world.netlify.app/',
+      },
+    ],
+  }),
 })
 
 function Home() {
   const { region, search } = Route.useSearch()
 
-  return <>
-  <SearchContainer region={region} search={search} />
-  <CountriesContainer region={region} search={search} />
-  </>
-  
-  
+  return (
+    <>
+      <SearchContainer region={region} search={search} />
+      <CountriesContainer region={region} search={search} />
+    </>
+  )
 }

@@ -25,6 +25,29 @@ export const Route = createFileRoute('/country/$code')({
         name: 'description',
         content: `Details about ${loaderData?.name.common}`,
       },
+      // open graph
+      { property: 'og:title', content: loaderData?.name.common },
+      {
+        property: 'og:description',
+        content: `Details about ${loaderData?.name.common}`,
+      },
+      { property: 'og:image', content: loaderData?.flags.png },
+      {
+        property: 'og:url',
+        content: `https://wheree-in-the-world.netlify.app/${loaderData?.cca3}`,
+      },
+      // Twitter Card
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: loaderData?.name.common },
+      {
+        name: 'twitter:description',
+        content: `Details about ${loaderData?.name.common}`,
+      },
+      { name: 'twitter:image', content: loaderData?.flags.png },
+      {
+        property: 'twitter:url',
+        content: `https://wheree-in-the-world.netlify.app/${loaderData?.cca3}`,
+      },
     ],
   }),
 })
