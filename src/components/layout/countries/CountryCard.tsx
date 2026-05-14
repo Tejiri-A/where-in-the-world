@@ -10,7 +10,7 @@ function CountryCard(Country: CountryCardType) {
           <img
             src={flags.png}
             alt={flags.alt}
-            className="object-contain size-full"
+            className="object-conver size-full"
             loading="lazy"
           />
         </picture>

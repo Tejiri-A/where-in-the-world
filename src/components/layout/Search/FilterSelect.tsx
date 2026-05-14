@@ -13,10 +13,10 @@ import {
 import { useNavigate } from '@tanstack/react-router'
 import { ChevronDown } from 'lucide-react'
 
-function FilterSelect() {
+function FilterSelect({region} : {region?:string}) {
   const navigate = useNavigate({ from: '/' })
 
-  const handleRegionChange = (region: string) => {
+  const handleRegionChange = (region?: string) => {
     navigate({
       search: (prev) => ({ ...prev, region }),
       replace: true,
@@ -24,7 +24,7 @@ function FilterSelect() {
   }
 
   return (
-    <Root onValueChange={handleRegionChange}>
+    <Root onValueChange={handleRegionChange} value={region}>
       <Trigger className="flex justify-between items-center px-6 h-14 capitalize rounded-sm drop-shadow cursor-pointer shrink-0 w-50 text-preset-5-regular element-bg-primary-clr text-primary-clr">
         <Value placeholder="Filter by Region" />
         <Icon asChild>

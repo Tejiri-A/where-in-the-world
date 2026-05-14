@@ -2,7 +2,7 @@ import { useNavigate } from '@tanstack/react-router'
 import { SearchIcon } from 'lucide-react'
 import type { ChangeEvent } from 'react'
 
-function SearchInput() {
+function SearchInput({ search }: { search?: string }) {
   const navigate = useNavigate({ from: '/' })
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     navigate({
@@ -21,6 +21,7 @@ function SearchInput() {
           placeholder="Search for a country..."
           className="text-preset-5-regular placeholder:text-grey-400"
           onChange={handleSearch}
+          value={search}
         />
       </div>
     </div>

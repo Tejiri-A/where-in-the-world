@@ -44,7 +44,7 @@ function Home() {
   const { region, search } = Route.useSearch()
 
   return <>
-  <SearchContainer />
+  <SearchContainer region={region} search={search} />
   <CountriesContainer region={region} search={search} />
   </>
   
