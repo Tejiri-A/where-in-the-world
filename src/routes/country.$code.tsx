@@ -103,7 +103,9 @@ function RouteComponent() {
               src={flags.svg}
               alt={flags.alt}
               className="object-cover size-full"
+              style={{ viewTransitionName: `flag-${code}` }}
             />
+
           </picture>
           <div className="flex-1 space-y-4">
             <h2 className="text-preset-2 md:text-preset-1">{name.common}</h2>

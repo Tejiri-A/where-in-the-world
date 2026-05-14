@@ -4,15 +4,18 @@ import { Link } from '@tanstack/react-router'
 function CountryCard(Country: CountryCardType) {
   const { cca3, flags, name, population, region, capital } = Country
   return (
-    <Link to="/country/$code" params={{ code: cca3 }}>
-      <div className="grid overflow-hidden grid-rows-2 rounded-sm drop-shadow w-66 h-84 element-bg-primary-clr">
+    <Link to="/country/$code" params={{ code: cca3 }} className="focus-ring rounded-sm">
+      <div className="grid overflow-hidden grid-rows-2 rounded-sm drop-shadow w-66 h-84 element-bg-primary-clr card-hover">
+
         <picture>
           <img
             src={flags.png}
             alt={flags.alt}
             className="object-cover size-full"
             loading="eager"
+            style={{ viewTransitionName: `flag-${cca3}` }}
           />
+
         </picture>
         <div className="flex items-center px-6 pt-5.5 pb-12 text-primary-clr">
           <div className="flex flex-col gap-y-4">

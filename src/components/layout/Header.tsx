@@ -25,21 +25,22 @@ function Header() {
         </h1>
         <button
           type="button"
-          className="flex gap-2 items-center cursor-pointer text-primary-clr"
+          className="flex gap-2 items-center cursor-pointer text-primary-clr theme-toggle-button focus-ring p-2 rounded-lg"
           onClick={toggleTheme}
         >
           {theme === 'light' ? (
             <>
-              <Moon className="size-4" />
+              <Moon className="size-4 theme-toggle-icon" />
               Dark Mode
             </>
           ) : (
             <>
-              <Sun className="size-4" />
+              <Sun className="size-4 theme-toggle-icon" />
               Light Mode
             </>
           )}
         </button>
+
       </div>
     </header>
   )

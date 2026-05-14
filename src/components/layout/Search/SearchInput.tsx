@@ -11,7 +11,8 @@ function SearchInput({ search }: { search?: string }) {
     })
   }
   return (
-    <div className="flex relative justify-start items-center px-8 w-full h-14 rounded-sm drop-shadow element-bg-primary-clr max-w-120">
+    <div className="flex relative justify-start items-center px-8 w-full h-14 rounded-sm drop-shadow element-bg-primary-clr max-w-120 focus-within:ring-2 focus-within:ring-blue-400 transition-premium">
+
       <div className="flex gap-6 items-center h-5 text-grey-400 dark:text-white">
         <SearchIcon className="size-5" />
         <input
@@ -19,12 +20,13 @@ function SearchInput({ search }: { search?: string }) {
           name=""
           id=""
           placeholder="Search for a country..."
-          className="text-preset-5-regular placeholder:text-grey-400"
+          className="text-preset-5-regular placeholder:text-grey-400 focus-visible:outline-none w-full"
           onChange={handleSearch}
           value={search}
         />
       </div>
     </div>
+
   )
 }
 

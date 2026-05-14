@@ -25,7 +25,8 @@ function FilterSelect({region} : {region?:string}) {
 
   return (
     <Root onValueChange={handleRegionChange} value={region}>
-      <Trigger className="flex justify-between items-center px-6 h-14 capitalize rounded-sm drop-shadow cursor-pointer shrink-0 w-50 text-preset-5-regular element-bg-primary-clr text-primary-clr">
+      <Trigger className="flex justify-between items-center px-6 h-14 capitalize rounded-sm drop-shadow cursor-pointer shrink-0 w-50 text-preset-5-regular element-bg-primary-clr text-primary-clr focus-ring">
+
         <Value placeholder="Filter by Region" />
         <Icon asChild>
           <ChevronDown />
